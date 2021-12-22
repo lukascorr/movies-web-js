@@ -51,7 +51,7 @@ function App() {
 
     const formData = new FormData();
 
-    formData.append('File', selectedFile);
+    formData.append('file', selectedFile);
 
     fetch(
         api_url,
@@ -60,9 +60,9 @@ function App() {
           body: formData,
         }
     )
-        .then((response) => response.json())
         .then((result) => {
-          console.log('Success:', result);
+          setIsOpen(false);
+          fetchApi()
         })
         .catch((error) => {
           console.error('Error:', error);
